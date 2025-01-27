@@ -84,3 +84,13 @@ print_status "Running test container with Docker"
 docker run --rm hello-world
 
 print_status "Infrastructure setup completed successfully!"
+
+# 8. Install Docker Compose
+print_status "Installing Docker Compose"
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# 9. Add user to Docker group
+sudo usermod -aG docker $USER
+newgrp docker
+
